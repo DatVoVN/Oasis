@@ -1,24 +1,24 @@
-import React from "react"
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
-import Dashboard from "./pages/Dashboard"
-import Bookings from "./pages/Bookings"
-import Cabins from "./pages/Cabins"
-import NewUsers from "./pages/Users"
-import Settings from "./pages/Settings"
-import Account from "./pages/Account"
-import Login from "./pages/Login"
-import PageNotFound from "./pages/PageNotFound"
-import GlobalStyles from "./styles/GlobalStyles"
-import AppLayout from "./ui/AppLayout"
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
-import { Toaster } from "react-hot-toast"
+import React from "react";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import Dashboard from "./pages/Dashboard";
+import Bookings from "./pages/Bookings";
+import Cabins from "./pages/Cabins";
+import NewUsers from "./pages/Users";
+import Settings from "./pages/Settings";
+import Account from "./pages/Account";
+import Login from "./pages/Login";
+import PageNotFound from "./pages/PageNotFound";
+import GlobalStyles from "./styles/GlobalStyles";
+import AppLayout from "./ui/AppLayout";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { Toaster } from "react-hot-toast";
 const queryClient = new QueryClient({
   defaultOptions: {
-    // queries: { scaleTime: 60 * 1000 },
-    queries: { scaleTime: 0 },
+    queries: { scaleTime: 60 * 1000 },
+    // queries: { scaleTime: 0 },
   },
-})
+});
 export default function App() {
   return (
     <>
@@ -60,5 +60,5 @@ export default function App() {
         />
       </QueryClientProvider>
     </>
-  )
+  );
 }
