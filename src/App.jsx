@@ -13,29 +13,40 @@ import AppLayout from "./ui/AppLayout";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Toaster } from "react-hot-toast";
+import Booking from "./pages/Booking";
+import Checkin from "./pages/Checkin";
+import ProtectedRoute from "./ui/ProtectedRoute";
+import { DarkModeProvide } from "./context/DarkModeContext";
 const queryClient = new QueryClient({
   defaultOptions: {
-    queries: { scaleTime: 60 * 1000 },
-    // queries: { scaleTime: 0 },
+    // queries: { scaleTime: 60 * 1000 },
+    queries: { scaleTime: 0 },
   },
 });
 export default function App() {
   return (
-    <>
+    <DarkModeProvide>
       <QueryClientProvider client={queryClient}>
         <ReactQueryDevtools initialIsOpen={true} />
         <GlobalStyles />
         <BrowserRouter>
           <Routes>
-            <Route element={<AppLayout />}>
+            <Route path="/login" element={<Login />} />
+            <Route
+              element={
+                <ProtectedRoute>
+                  <AppLayout />
+                </ProtectedRoute>
+              }>
               <Route index element={<Navigate replace to="/dashboard" />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/bookings" element={<Bookings />} />
+              <Route path="/bookings/:bookingId" element={<Booking />} />
+              <Route path="/checkin/:bookingId" element={<Checkin />} />
               <Route path="/cabins" element={<Cabins />} />
               <Route path="/users" element={<NewUsers />} />
               <Route path="/settings" element={<Settings />} />
               <Route path="/account" element={<Account />} />
-              <Route path="/login" element={<Login />} />
               <Route path="*" element={<PageNotFound />} />
             </Route>
           </Routes>
@@ -59,6 +70,6 @@ export default function App() {
           }}
         />
       </QueryClientProvider>
-    </>
+    </DarkModeProvide>
   );
 }
