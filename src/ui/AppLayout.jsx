@@ -3,7 +3,8 @@ import { Outlet } from "react-router-dom";
 import Header from "./Header";
 
 import styled from "styled-components";
-import SideBar from "./SideBar";
+import SideBar1 from "./SideBar1";
+
 const Main = styled.main`
   background-color: var(--color-grey-50);
   padding: 4rem 4.8rem 6.4rem;
@@ -26,7 +27,7 @@ export default function AppLayout() {
   return (
     <StyledAppLayout>
       <Header />
-      <SideBar />
+      <SideBar1 />
       <Main>
         <Container>
           <Outlet />
