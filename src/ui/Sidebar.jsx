@@ -11,7 +11,7 @@ const StyledSidebar = styled.aside`
   flex-direction: column;
   gap: 3.2rem;
 `;
-export default function Sidebar() {
+export default function SideBar() {
   return (
     <StyledSidebar>
       <Logo />
