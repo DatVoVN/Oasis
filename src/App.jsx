@@ -27,7 +27,6 @@ export default function App() {
   return (
     <DarkModeProvide>
       <QueryClientProvider client={queryClient}>
-        <ReactQueryDevtools initialIsOpen={true} />
         <GlobalStyles />
         <BrowserRouter>
           <Routes>
