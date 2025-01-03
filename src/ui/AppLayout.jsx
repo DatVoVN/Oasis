@@ -1,8 +1,9 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
-import SideBar from "./SideBar";
+
 import styled from "styled-components";
+import SideBar from "./SideBar";
 const Main = styled.main`
   background-color: var(--color-grey-50);
   padding: 4rem 4.8rem 6.4rem;
